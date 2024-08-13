@@ -11,7 +11,7 @@
             <div class="col-12 ">
                 <div class="card mb-4 ">
                     <div class="card-header pb-0">
-                        <h6 class="d-lg-none">Data Order</h6>
+                        <h6 class="d-lg-none">Data Ordeer</h6>
                         <div class="d-flex align-items-center">
                             <h6 class="d-none d-lg-block">Data Order</h6>
 
@@ -477,7 +477,7 @@
                                                             <select class="form-control form-select" name="tracking_id" aria-label=".form-select-sm example">
                                                             <option selected>Pilih...</option>
                                                                 ${statusTracking.map(status => `<option value="${status.id}" ${status.id == data.tracking_id ? 'selected' : ''}>${status.nama_tracking}
-                                                                                                                                        </option>`)}
+                                                                                                                                                </option>`)}
                                                         </select>
                                                         </div>
                                                     </div>
