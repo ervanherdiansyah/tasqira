@@ -1,3 +1,8 @@
+<style>
+    .navbar-vertical.navbar-expand-xs {
+        z-index: 1 !important;
+    }
+</style>
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
     id="sidenav-main">
     <div class="sidenav-header">
