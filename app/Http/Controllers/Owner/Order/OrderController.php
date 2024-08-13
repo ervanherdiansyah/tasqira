@@ -36,6 +36,8 @@ class OrderController extends Controller
                             ->orWhere('gambar_status', 'like', '%' . $searchValue . '%')
                             ->orWhere('deskripsi', 'like', '%' . $searchValue . '%')
                             ->orWhere('deadline', 'like', '%' . $searchValue . '%')
+                            ->orWhere('jumlah', 'like', '%' . $searchValue . '%')
+                            ->orWhere('keterangan', 'like', '%' . $searchValue . '%')
                             ->orWhere('keuntungan', 'like', '%' . $searchValue . '%')
                             ->orWhere('item_belanja', 'like', '%' . $searchValue . '%')
                             ->orWhere('sisa_bahan', 'like', '%' . $searchValue . '%')
@@ -100,6 +102,12 @@ class OrderController extends Controller
                     ->addColumn('deskripsii', function ($data) {
                         return $data->deskripsi ? Str::limit($data->deskripsi, 20) : '-';
                     })
+                    ->addColumn('jumlah', function ($data) {
+                        return $data->jumlah ?: '-';
+                    })
+                    ->addColumn('keterangan', function ($data) {
+                        return $data->keterangan ?: '-';
+                    })
                     ->addColumn('tanggal_order', function ($data) {
                         return  Carbon::parse($data->tanggal_order)->locale('id')->isoFormat('D MMMM YYYY') ?? '-';
                     })
@@ -157,7 +165,7 @@ class OrderController extends Controller
                                 <i class="fa fa-trash fa-xs text-white text-sm opacity-10"></i> Hapus
                             </a>';
                     })
-                    ->rawColumns(['tracking_id', 'gamabar_order', 'status_order', 'gambar_status', 'action', 'sisa_bahan', 'deskripsi', 'item_belanja', 'deskripsii'])
+                    ->rawColumns(['tracking_id', 'gamabar_order', 'status_order', 'gambar_status', 'action', 'sisa_bahan', 'deskripsi', 'item_belanja', 'deskripsii', 'jumlah', 'keterangan'])
                     ->make(true);
             }
 
@@ -204,6 +212,8 @@ class OrderController extends Controller
                 'deskripsi' => $request->deskripsi,
                 'deadline' => $request->deadline,
                 'keuntungan' => $request->keuntungan,
+                'jumlah' => $request->jumlah,
+                'keterangan' => $request->keterangan,
                 'item_belanja' => $request->item_belanja,
                 'sisa_bahan' => $request->sisa_bahan,
                 'status_order' => $statusOrder->nama_tracking,
@@ -272,6 +282,8 @@ class OrderController extends Controller
                 'deskripsi' => $request->deskripsi,
                 'deadline' => $request->deadline,
                 'keuntungan' => $keuntunganInteger,
+                'jumlah' => $request->jumlah,
+                'keterangan' => $request->keterangan,
                 'item_belanja' => $request->item_belanja,
                 'sisa_bahan' => $request->sisa_bahan,
                 'status_order' => $statusOrder->nama_tracking,

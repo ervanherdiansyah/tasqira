@@ -38,6 +38,10 @@
                                         <th class="text-uppercase text-secondary text-xs font-weight-bolder">
                                             Foto Order</th>
                                         <th class="text-uppercase text-secondary text-xs font-weight-bolder">
+                                            Jumlah Order</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder">
+                                            Foto Order</th>
+                                        <th class="text-uppercase text-secondary text-xs font-weight-bolder">
                                             Deskripsi</th>
                                         <th class="text-uppercase text-secondary text-xs font-weight-bolder">
                                             Tanggal Order</th>
@@ -94,6 +98,17 @@
                                     <input name="nama_order" type="text" class="form-control" placeholder="Nama Order"
                                         aria-label="Name" value="{{ old('nama_order') }}">
                                     @error('nama_order')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="example-text-input" class="form-control-label">Jumlah
+                                        Order</label>
+                                    <input name="jumlah" type="text" class="form-control" placeholder="Jumlah Order"
+                                        aria-label="Name" value="{{ old('jumlah') }}">
+                                    @error('jumlah')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -162,6 +177,17 @@
 
                                     </select>
                                     @error('tracking_id')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="example-text-input" class="form-control-label">Keterangan Status
+                                        Order</label>
+                                    <textarea name="keterangan" type="text" id="editor4" class="form-control" placeholder="keterangan"
+                                        aria-label="Name" value="{{ old('keterangan') }}"> </textarea>
+                                    @error('keterangan')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
@@ -283,6 +309,11 @@
             .catch(error => {
                 // console.error(error);
             });
+        ClassicEditor
+            .create(document.querySelector('#editor4'))
+            .catch(error => {
+                // console.error(error);
+            });
 
         $(document).ready(function() {
             // loadData();
@@ -308,6 +339,11 @@
                         {
                             data: "nama_order",
                             name: "nama_order",
+                            orderable: false
+                        },
+                        {
+                            data: "jumlah",
+                            name: "jumlah",
                             orderable: false
                         },
                         {
@@ -428,6 +464,15 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
+                                                            <label for="jumlah${data.id}" class="form-control-label">Jumlah Order</label>
+                                                            <input name="jumlah" type="text" class="form-control" id="jumlah${data.id}" placeholder="Jumlah Order" value="${data.jumlah}">
+                                                            @error('jumlah')
+                                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
                                                             <label for="gamabar_order${data.id}" class="form-control-label">Foto Order</label>
                                                             <input name="gamabar_order" type="file" class="form-control" id="gamabar_order${data.id}" placeholder="Foto Order">
                                                             @error('gamabar_order')
@@ -477,8 +522,17 @@
                                                             <select class="form-control form-select" name="tracking_id" aria-label=".form-select-sm example">
                                                             <option selected>Pilih...</option>
                                                                 ${statusTracking.map(status => `<option value="${status.id}" ${status.id == data.tracking_id ? 'selected' : ''}>${status.nama_tracking}
-                                                                                                                                                </option>`)}
+                                                                                                                                                                                                                                                            </option>`)}
                                                         </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
+                                                            <label for="keterangan${data.id}" class="form-control-label">Keterangan</label>
+                                                            <textarea name="keterangan" id="keterangan${data.id}" class="form-control">${data.keterangan}</textarea>
+                                                            @error('keterangan')
+                                                                <div class="alert alert-danger">{{ $message }}</div>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -567,6 +621,12 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
+                                                            <label for="jumlah${data.id}" class="form-control-label">Jumlah Order</label>
+                                                            <p>${data.jumlah}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="mb-3">
                                                             <label for="gambar_order${data.id}" class="form-control-label">Foto Order</label>
                                                             <div>${data.gamabar_order}</div>
                                                         
@@ -599,8 +659,8 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="mb-3">
-                                                            <label for="tracking_id${modalId}" class="form-control-label">Status Tracking</label>
-                                                            <p>${data.status_order}</p>
+                                                            <label for="keterangan${modalId}" class="form-control-label">Keterangan Status Order</label>
+                                                            <p>${data.keterangan}</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -646,6 +706,10 @@
                             });
                             ClassicEditor.create(document.querySelector(
                                 `#deskripsi${data.id}`)).catch(error => {
+                                console.error(error);
+                            });
+                            ClassicEditor.create(document.querySelector(
+                                `#keterangan${data.id}`)).catch(error => {
                                 console.error(error);
                             });
 
