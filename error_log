@@ -1,0 +1,40 @@
+[30-Jul-2024 12:36:01 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
+[30-Jul-2024 12:37:01 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
+[30-Jul-2024 12:38:02 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
+[30-Jul-2024 12:39:02 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
+[30-Jul-2024 12:40:01 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
+[30-Jul-2024 12:41:01 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
+[30-Jul-2024 12:42:02 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
+[30-Jul-2024 12:43:01 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
+[30-Jul-2024 12:44:02 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
+[30-Jul-2024 12:45:02 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Call to undefined function symlink() in /home/tase8431/tasqira/symlink.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/tase8431/tasqira/symlink.php on line 13
